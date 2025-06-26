@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import session from "express-session";
 import "./cron.js";
 import passport from "./config/passport.js";
-import { loggerMiddleware } from "./middlewares/logger.js";
 import dishRouter from "./routers/dish.router.js";
 import dietTempletRouter from "./routers/diet_template.router.js";
 import dietLogRouter from "./routers/diet_log.router.js";
@@ -19,6 +18,7 @@ import authenticate from "./middlewares/authenticate.middleware.js";
 import leaderboardRouter from "./routers/leaderboard.router.js";
 import client from "prom-client"
 import responseTime from "response-time"
+import requestLogger from "./middlewares/requestLogger.js";
 
 // import winston from "winston";
 // import LokiTransport from "winston-loki";
@@ -62,7 +62,7 @@ app.use(
 
 app.use(express.json());
 
-app.use(loggerMiddleware);
+app.use(requestLogger);
 
 app.use(
   session({

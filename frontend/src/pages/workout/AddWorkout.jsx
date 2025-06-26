@@ -4,8 +4,7 @@ import ExerciseDropdown from "../../components/workout/ExerciseDropdown.jsx";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthProvider.jsx";
 
-const API_URL = import.meta.env.API_URL;
-
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const CreateWorkout = () => {
   const [formData, setFormData] = useState({

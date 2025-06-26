@@ -38,7 +38,6 @@ const recordExercise = async ({
   return rows[0];
 };
 
-
 const fetchAllExercises = async () => {
   const query = `
     SELECT e.*, u.first_name AS created_by_name

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../../AuthProvider";
 
-const API_URL = import.meta.env.API_URL;
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const RecordWorkoutForm = () => {
   const [formData, setFormData] = useState({

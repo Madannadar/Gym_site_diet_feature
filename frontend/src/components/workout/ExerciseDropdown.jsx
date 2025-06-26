@@ -6,10 +6,12 @@ const ExerciseDropdown = ({ selectedId, onSelect }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const API_URL = import.meta.env.VITE_BACKEND_URL;
+
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const res = await fetch(`${VITE_BACKEND_URL}/workouts/exercises`);
+        const res = await fetch(`${API_URL}/workouts/exercises`);
         if (!res.ok) throw new Error("Network response was not ok");
         const data = await res.json();
         setExercises(data.items);
